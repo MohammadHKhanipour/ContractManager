@@ -1,12 +1,12 @@
 ﻿namespace ContractManager.Share.Adapters
 {
-    public class DocumentationAdapter : IBaseAdapter<Documentation, DocumentationDto>
+    public class ContractFileAdapter : IBaseAdapter<ContractFile, ContractFileDto>
     {
-        public DocumentationDto GetDto(Documentation model)
+        public ContractFileDto GetDto(ContractFile model)
         {
             if (model == null)
                 return null;
-            return new DocumentationDto()
+            return new ContractFileDto()
             {
                 Id = model.Id,
                 IsDeleted = model.IsDeleted,
@@ -15,7 +15,7 @@
             };
         }
 
-        public IEnumerable<DocumentationDto> GetDtos(List<Documentation> models)
+        public IEnumerable<ContractFileDto> GetDtos(List<ContractFile> models)
         {
             foreach (var item in models)
             {
@@ -25,11 +25,11 @@
             }
         }
 
-        public Documentation GetModel(DocumentationDto dto)
+        public ContractFile GetModel(ContractFileDto dto)
         {
             if (dto == null)
                 return null;
-            return new Documentation()
+            return new ContractFile()
             {
                 Id = dto.Id,
                 IsDeleted = dto.IsDeleted,
@@ -38,7 +38,7 @@
             };
         }
 
-        public IEnumerable<Documentation> GetModels(List<DocumentationDto> dtos)
+        public IEnumerable<ContractFile> GetModels(List<ContractFileDto> dtos)
         {
             foreach (var item in dtos)
             {

@@ -14,7 +14,7 @@
         public decimal FinalCost { get; set; }
 
         public List<FundingResource>? FundingResources { get; set; }
-        public List<Documentation>? Documentations { get; set; }
+        public List<ContractFile>? Documentations { get; set; }
         public List<Correspondence>? Correspondences { get; set; }
     }
 }

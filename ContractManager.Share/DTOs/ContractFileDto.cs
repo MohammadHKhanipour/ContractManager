@@ -1,6 +1,6 @@
 ﻿namespace ContractManager.Share.DTOs
 {
-    public class DocumentationDto : BaseDto
+    public class ContractFileDto : BaseDto
     {
         public string Name { get; set; } = string.Empty;
 

@@ -8,7 +8,7 @@
 
         public DbSet<Contract>? Contracts { get; set; }
         public DbSet<Correspondence>? Correspondences { get; set; }
-        public DbSet<Documentation>? Documentations { get; set; }
+        public DbSet<ContractFile>? ContractFiles { get; set; }
         public DbSet<FundingResource>? FundingResources { get; set; }
     }
 }
