@@ -8,6 +8,8 @@ var connectionString = builder.Configuration.GetConnectionString("ContractManage
 
 DependencyManager.RegisterAllDependencies(builder.Services, connectionString);
 
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

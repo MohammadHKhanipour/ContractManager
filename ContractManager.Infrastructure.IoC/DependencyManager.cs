@@ -1,4 +1,5 @@
 ﻿using ContractManager.Framework.Contracts;
+using ContractManager.Infrastructure.Tools;
 
 namespace ContractManager.Infrastructure.IoC
 {
@@ -51,6 +52,7 @@ namespace ContractManager.Infrastructure.IoC
             services.AddScoped<IDomainService<ContractFile, ContractFileDto>, DomainService<ContractFile, ContractFileDto>>();
             services.AddScoped<IDomainService<FundingResource, FundingResourceDto>, DomainService<FundingResource, FundingResourceDto>>();
 
+            services.AddScoped<IUploadService, UploadService>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<ICorrespondenceService, CorrespondenceService>();
             services.AddScoped<IContractFileService, ContractFileService>();

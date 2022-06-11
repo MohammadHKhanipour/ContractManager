@@ -11,6 +11,8 @@
                 Id = model.Id,
                 IsDeleted = model.IsDeleted,
                 Name = model.Name,
+                DateAdded = model.DateAdded,
+                FileAddress = model.FileAddress,
                 ContractId = model.ContractId
             };
         }
@@ -34,6 +36,8 @@
                 Id = dto.Id,
                 IsDeleted = dto.IsDeleted,
                 Name = dto.Name,
+                DateAdded = dto.DateAdded,
+                FileAddress = dto.FileAddress,
                 ContractId = dto.ContractId
             };
         }

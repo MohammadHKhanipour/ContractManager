@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ContractManager.Domain\ContractManager.Domain.csproj" />
     <ProjectReference Include="..\ContractManager.Framework\ContractManager.Framework.csproj" />
+    <ProjectReference Include="..\ContractManager.Infrastructure\ContractManager.Infrastructure.csproj" />
     <ProjectReference Include="..\ContractManager.Share\ContractManager.Share.csproj" />
   </ItemGroup>
 
