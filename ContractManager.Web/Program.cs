@@ -8,6 +8,7 @@ var connectionString = builder.Configuration.GetConnectionString("ContractManage
 
 DependencyManager.RegistereDatabase(builder.Services, connectionString);
 DependencyManager.RegisterAdapters(builder.Services);
+DependencyManager.RegisterRepositoies(builder.Services);
 
 var app = builder.Build();
 

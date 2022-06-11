@@ -1,7 +1,4 @@
-﻿using ContractManager.Domain.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace ContractManager.Infrastructure.Context
+﻿namespace ContractManager.Infrastructure.Context
 {
     public class ContractManagerDbContext : DbContext
     {

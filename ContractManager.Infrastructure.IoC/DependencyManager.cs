@@ -1,12 +1,4 @@
-﻿using ContractManager.Domain.Models;
-using ContractManager.Framework.Adapter;
-using ContractManager.Infrastructure.Context;
-using ContractManager.Share.Adapters;
-using ContractManager.Share.DTOs;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace ContractManager.Infrastructure.IoC
+﻿namespace ContractManager.Infrastructure.IoC
 {
     public class DependencyManager
     {
@@ -22,6 +14,16 @@ namespace ContractManager.Infrastructure.IoC
             services.AddScoped<IBaseAdapter<Correspondence, CorrespondenceDto>, CorrespondenceAdapter>();
             services.AddScoped<IBaseAdapter<Documentation, DocumentationDto>, DocumentationAdapter>();
             services.AddScoped<IBaseAdapter<FundingResource, FundingResourceDto>, FundingResourceAdapter>();
+        }
+        #endregion
+
+        #region Register Repositories
+        public static void RegisterRepositoies(IServiceCollection services)
+        {
+            services.AddScoped<IQueryRepository<Contract>, QueryRepository<Contract>>();
+            services.AddScoped<IQueryRepository<Correspondence>, QueryRepository<Correspondence>>();
+            services.AddScoped<IQueryRepository<Documentation>, QueryRepository<Documentation>>();
+            services.AddScoped<IQueryRepository<FundingResource>, QueryRepository<FundingResource>>();
         }
         #endregion
     }
