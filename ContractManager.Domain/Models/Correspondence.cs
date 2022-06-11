@@ -2,7 +2,7 @@
 {
     public class Correspondence : BaseModel
     {
-        public string Content { get; set; } = string.Empty;
+        public string CorrespondenceContent { get; set; } = string.Empty;
         public CorrespondenceType CorrespondenceType { get; set; }
 
         public int ContractId { get; set; }

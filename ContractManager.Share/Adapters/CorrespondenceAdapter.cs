@@ -10,7 +10,7 @@
             {
                 Id = model.Id,
                 IsDeleted = model.IsDeleted,
-                Content = model.Content,
+                CorrespondenceContent = model.CorrespondenceContent,
                 ContractId = model.ContractId,
                 CorrespondenceType = model.CorrespondenceType,
             };
@@ -34,7 +34,7 @@
             {
                 Id = dto.Id,
                 IsDeleted = dto.IsDeleted,
-                Content = dto.Content,
+                CorrespondenceContent = dto.CorrespondenceContent,
                 ContractId = dto.ContractId,
                 CorrespondenceType = dto.CorrespondenceType
             };
