@@ -6,7 +6,9 @@
         private readonly ICommandRepository<Contract> _commandRepository;
         private readonly IBaseAdapter<Contract, ContractDto> _baseAdapter;
 
-        public ContractService(IQueryRepository<Contract> queryRepository, ICommandRepository<Contract> commandRepository, IBaseAdapter<Contract, ContractDto> baseAdapter)
+        public ContractService(IQueryRepository<Contract> queryRepository,
+            ICommandRepository<Contract> commandRepository,
+            IBaseAdapter<Contract, ContractDto> baseAdapter)
             : base(queryRepository, commandRepository, baseAdapter)
         {
             _queryRepository = queryRepository;

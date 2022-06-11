@@ -1,6 +1,6 @@
-﻿namespace ContractManager.Framework.BaseClasses
+﻿namespace ContractManager.Framework.Data
 {
-    public class BaseDto
+    public class BaseModel
     {
         public int Id { get; set; }
         public bool IsDeleted { get; set; } = false;

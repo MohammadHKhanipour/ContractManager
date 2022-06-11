@@ -1,2 +1,2 @@
-﻿global using ContractManager.Framework.BaseClasses;
+﻿global using ContractManager.Framework.Data;
 global using ContractManager.Framework.Enums;

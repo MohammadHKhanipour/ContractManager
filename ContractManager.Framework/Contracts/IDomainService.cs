@@ -1,4 +1,7 @@
-﻿namespace ContractManager.Service.Interfaces
+﻿using ContractManager.Framework.Data;
+using System.Linq.Expressions;
+
+namespace ContractManager.Framework.Contracts
 {
     public interface IDomainService<Model, Dto> where Model : BaseModel where Dto : BaseDto
     {

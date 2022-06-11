@@ -1,4 +1,4 @@
-﻿using ContractManager.Framework.BaseClasses;
+﻿using ContractManager.Framework.Data;
 
 namespace ContractManager.Framework.Adapter
 {

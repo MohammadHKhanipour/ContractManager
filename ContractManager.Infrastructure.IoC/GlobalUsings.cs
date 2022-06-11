@@ -8,3 +8,5 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.DependencyInjection;
 global using ContractManager.Service.Classes;
 global using ContractManager.Service.Interfaces;
+global using ContractManager.Business.Classes;
+global using ContractManager.Business.Interfaces;

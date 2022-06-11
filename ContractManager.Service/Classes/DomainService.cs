@@ -1,4 +1,6 @@
-﻿namespace ContractManager.Service.Classes
+﻿using ContractManager.Framework.Contracts;
+
+namespace ContractManager.Service.Classes
 {
     public class DomainService<Model, Dto> : IDomainService<Model, Dto> where Model : BaseModel where Dto : BaseDto
     {

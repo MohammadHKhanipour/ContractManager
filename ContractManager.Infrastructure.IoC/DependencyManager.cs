@@ -1,4 +1,6 @@
-﻿namespace ContractManager.Infrastructure.IoC
+﻿using ContractManager.Framework.Contracts;
+
+namespace ContractManager.Infrastructure.IoC
 {
     public class DependencyManager
     {
@@ -8,6 +10,7 @@
             RegisterAdapters(services);
             RegisterRepositoies(services);
             RegisterServices(services);
+            RegisterBusinesses(services);
         }
         
         #region Register Database
@@ -43,10 +46,25 @@
         #region Register Services
         private static void RegisterServices(IServiceCollection services)
         {
+            services.AddScoped<IDomainService<Contract, ContractDto>, DomainService<Contract, ContractDto>>();
+            services.AddScoped<IDomainService<Correspondence, CorrespondenceDto>, DomainService<Correspondence, CorrespondenceDto>>();
+            services.AddScoped<IDomainService<ContractFile, ContractFileDto>, DomainService<ContractFile, ContractFileDto>>();
+            services.AddScoped<IDomainService<FundingResource, FundingResourceDto>, DomainService<FundingResource, FundingResourceDto>>();
+
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<ICorrespondenceService, CorrespondenceService>();
             services.AddScoped<IContractFileService, ContractFileService>();
             services.AddScoped<IFundingResourceService, FundingResourceService>();
+        }
+        #endregion
+
+        #region Register Businesses
+        private static void RegisterBusinesses(IServiceCollection services)
+        {
+            services.AddScoped<IContractBusiness, ContractBusiness>();
+            services.AddScoped<ICorrespondenceBusiness, CorrespondenceBusiness>();
+            services.AddScoped<IContractFileBusiness, ContractFileBusiness>();
+            services.AddScoped<IFundingResourceBusiness, FundingResourceBusiness>();
         }
         #endregion
     }
