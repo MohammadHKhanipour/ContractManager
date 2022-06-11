@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("ContractManagerDbConnection");
 
 DependencyManager.RegistereDatabase(builder.Services, connectionString);
+DependencyManager.RegisterAdapters(builder.Services);
 
 var app = builder.Build();
 

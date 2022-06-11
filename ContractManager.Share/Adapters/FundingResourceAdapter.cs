@@ -1,4 +1,4 @@
-﻿namespace FundingResourceManager.Share.Adapters
+﻿namespace ContractManager.Share.Adapters
 {
     public class FundingResourceAdapter : IBaseAdapter<FundingResource, FundingResourceDto>
     {

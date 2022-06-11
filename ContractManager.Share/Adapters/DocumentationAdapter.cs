@@ -1,4 +1,4 @@
-﻿namespace DocumentationManager.Share.Adapters
+﻿namespace ContractManager.Share.Adapters
 {
     public class DocumentationAdapter : IBaseAdapter<Documentation, DocumentationDto>
     {
