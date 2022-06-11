@@ -16,9 +16,9 @@ namespace ContractManager.Business.Classes
             _uploadService = uploadService;
         }
 
-        public async Task<ResponseBase<bool>> UploadAndCreate(UploadFileDto dto, IHttpContextAccessor httpContextAccessor)
+        public async Task<ResponseBase<bool>> UploadAndCreate(UploadFileDto dto)
         {
-            var upload = await _uploadService.UploadFile(dto.File, httpContextAccessor);
+            var upload = await _uploadService.UploadFile(dto.File);
             if (upload.Status == ResponseStatus.Fail)
                 return ResponseBase<bool>.Failure(ResponseStatus.Fail);
 

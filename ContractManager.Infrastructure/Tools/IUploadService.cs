@@ -6,12 +6,12 @@ namespace ContractManager.Infrastructure.Tools
 {
     public interface IUploadService
     {
-        Task<ResponseBase<string>> UploadFile(IFormFile file, IHttpContextAccessor httpContextAccessor);
+        Task<ResponseBase<string>> UploadFile(IFormFile file);
     }
 
     public class UploadService : IUploadService
     {
-        public async Task<ResponseBase<string>> UploadFile(IFormFile file, IHttpContextAccessor httpContextAccessor)
+        public async Task<ResponseBase<string>> UploadFile(IFormFile file)
         {
             try
             {
@@ -27,10 +27,7 @@ namespace ContractManager.Infrastructure.Tools
                         await file.CopyToAsync(fs);
                         await fs.FlushAsync();
                     }
-
-                    var outputPath = CreatePath(httpContextAccessor,"files",newFileName);
-                    
-                    return ResponseBase<string>.Success(outputPath);
+                    return ResponseBase<string>.Success(newFileName);
                 }
                 return ResponseBase<string>.Failure(Framework.Enums.ResponseStatus.Fail);
             }
@@ -38,19 +35,6 @@ namespace ContractManager.Infrastructure.Tools
             {
                 return ResponseBase<string>.Failure(Framework.Enums.ResponseStatus.Fail);
             }
-        }
-
-        private string CreatePath(IHttpContextAccessor contextAccessor, string folderName, string fileName)
-        {
-            var stringBuilder = new StringBuilder();
-            stringBuilder.Append(contextAccessor.HttpContext.Request.Scheme);
-            stringBuilder.Append("://");
-            stringBuilder.Append(contextAccessor.HttpContext.Request.Host.ToUriComponent());
-            stringBuilder.Append("/");
-            stringBuilder.Append(folderName);
-            stringBuilder.Append("/");
-            stringBuilder.Append(fileName);
-            return stringBuilder.ToString();
         }
     }
 }

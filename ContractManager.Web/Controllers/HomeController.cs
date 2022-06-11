@@ -10,25 +10,22 @@ namespace ContractManager.Web.Controllers
     {
         private readonly IContractBusiness _contractBusiness;
         private readonly IContractFileBusiness _contractFileBusiness;
-        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public HomeController(IContractBusiness contractBusiness, IContractFileBusiness contractFileBusiness, IHttpContextAccessor httpContextAccessor)
+        public HomeController(IContractBusiness contractBusiness, IContractFileBusiness contractFileBusiness)
         {
             _contractBusiness = contractBusiness;
             _contractFileBusiness = contractFileBusiness;
-            _httpContextAccessor = httpContextAccessor;
         }
 
         public IActionResult Index()
         {
-            var result = FullPath(_httpContextAccessor);
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Upload(UploadFileDto dto)
         {
-            var result = await _contractFileBusiness.UploadAndCreate(dto, _httpContextAccessor);
+            var result = await _contractFileBusiness.UploadAndCreate(dto);
             
             return Ok(result);
         }
