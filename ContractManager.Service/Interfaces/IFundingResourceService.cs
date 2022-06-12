@@ -2,5 +2,6 @@
 {
     public interface IFundingResourceService : IDomainService<FundingResource, FundingResourceDto>
     {
+        Task<int> GetCountById(int contractId);
     }
 }

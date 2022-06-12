@@ -1,6 +1,72 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ContractManager.Framework.Data.ListResponseBase<ContractManager.Share.DTOs.ShowContractDto>
+@using ContractManager.Framework.Enums
+
 @{
+	ViewData["Title"] = "Home";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<img src="~/files/4219f8d6-b73e-4702-980d-3d409fc103e9.jpg"/>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+	<div class="alert alert-danger" role="alert">
+		@ViewBag.Error
+	</div>
+}
+<a class="btn btn-primary" asp-action="AddContract" asp-controller="Contract">Add Contract</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Number</th>
+			<th scope="col">Subject</th>
+			<th scope="col">Type</th>
+			<th scope="col">Fund</th>
+			<th scope="col">Side</th>
+			<th scope="col">StartDate</th>
+			<th scope="col">DueDate</th>
+			<th scope="col">FinalCost</th>
+			<th scope="col">FundingSource</th>
+			<th scope="col">Documentation</th>
+			<th scope="col">Correspondences</th>
+			<th scope="col">Status</th>
+			<th scope="col">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			if (Model.Status == ResponseStatus.Fail)
+			{
+				<p>No Contracts Found</p>
+			}
+			else
+			{
+				int i = 1;
+				foreach (var item in Model.Result)
+				{
+					<tr>
+						<th scope="row">@i</th>
+						<td>@item.Number</td>
+						<td>@item.Subject</td>
+						<td>@item.ContractType</td>
+						<td>@item.Cost</td>
+						<td>@item.ContractSide</td>
+						<td>@item.StartDate</td>
+						<td>@item.DueDate</td>
+						<td>@item.FinalCost</td>
+						<td><a asp-action="Index" asp-controller="FundingResource">@item.FundingResourcesCount</a></td>
+						<td><a asp-action="Index" asp-controller="ContractFile">@item.DocumentationsCount</a></td>
+						<td><a asp-action="Index" asp-controller="Correspondence">@item.CorrespondencesCount</a></td>
+						<td>@item.ContractStatus</td>
+						<td>
+							<div class="d-felx justify-content-between align-align-items-center">
+								<a asp-action="DeleteContract" asp-controller="Contract" asp-route-id=@item.Id><i class="bi bi-x-circle me-2 p-0"></i></a>
+								<a asp-action="EditContract" asp-controller="Contract" asp-route-id=@item.Id><i class="bi bi-pencil p-0"></i></a>
+							</div>
+						</td>
+					</tr>
+					i++;
+				}
+			}
+		}
+	</tbody>
+</table>

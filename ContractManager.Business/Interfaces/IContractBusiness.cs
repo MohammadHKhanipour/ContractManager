@@ -2,5 +2,6 @@
 {
     public interface IContractBusiness : IDomainBusiness<Contract, ContractDto>
     {
+        Task<ListResponseBase<ShowContractDto>> GetAllContracts();
     }
 }

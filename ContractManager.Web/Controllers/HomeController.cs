@@ -15,31 +15,26 @@ namespace ContractManager.Web.Controllers
             _contractFileBusiness = contractFileBusiness;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string message = "")
         {
-            return View();
+            if (!string.IsNullOrEmpty(message))
+                ViewBag.Error = message;
+
+            return View(await _contractBusiness.GetAllContracts());
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Upload(UploadFileDto dto)
-        {
-            var result = await _contractFileBusiness.UploadAndCreate(dto);
+        //[HttpPost]
+        //public async Task<IActionResult> Upload(UploadFileDto dto)
+        //{
+        //    var result = await _contractFileBusiness.UploadAndCreate(dto);
 
-            return Ok(result);
-        }
+        //    return Ok(result);
+        //}
 
-        [HttpGet]
-        public async Task<IActionResult> Upload()
-        {
-            return View();
-        }
-
-        public string FullPath(IHttpContextAccessor contextAccessor)
-        {
-            return string.Concat(contextAccessor.HttpContext.Request.Scheme
-                , "://"
-                , contextAccessor.HttpContext.Request.Host.ToUriComponent());
-
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> Upload()
+        //{
+        //    return View();
+        //}
     }
 }

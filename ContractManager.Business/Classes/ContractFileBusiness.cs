@@ -29,7 +29,7 @@
                 return ResponseBase<bool>.Success(response);
 
             return ResponseBase<bool>.Failure(ResponseStatus.Fail);
-
         }
+
     }
 }

@@ -1,0 +1,97 @@
+﻿@model ContractManager.Share.DTOs.ContractDto
+
+@{
+	ViewData["Title"] = "AddContract";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddContract</h1>
+
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="AddContract">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group mb-2">
+				<label asp-for="Number" class="control-label"></label>
+				<input asp-for="Number" class="form-control" />
+				<span asp-validation-for="Number" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="Subject" class="control-label"></label>
+				<input asp-for="Subject" class="form-control" />
+				<span asp-validation-for="Subject" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="ContractType" class="control-label"></label>
+				<div class="input-group">
+					<select class="form-select" asp-for=ContractType>
+						<option>Consulting</option>
+						<option>Contractor</option>
+						<option>Volume</option>
+						<option>Project</option>
+					</select>
+				</div>
+				<span asp-validation-for="ContractType" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="ContractStatus" class="control-label"></label>
+				<div class="input-group">
+					<select class="form-select" asp-for=ContractStatus>
+						<option>Finished</option>
+						<option>InProgress</option>
+					</select>
+				</div>
+				<span asp-validation-for="ContractStatus" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="PaymentType" class="control-label"></label>
+				<div class="input-group">
+					<select class="form-select" asp-for=PaymentType>
+						<option>Cash</option>
+						<option>NonCash</option>
+					</select>
+				</div>
+				<span asp-validation-for="PaymentType" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="Cost" class="control-label"></label>
+				<input asp-for="Cost" class="form-control" />
+				<span asp-validation-for="Cost" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="ContractSide" class="control-label"></label>
+				<input asp-for="ContractSide" class="form-control" />
+				<span asp-validation-for="ContractSide" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="StartDate" class="control-label"></label>
+				<input asp-for="StartDate" class="form-control" />
+				<span asp-validation-for="StartDate" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="DueDate" class="control-label"></label>
+				<input asp-for="DueDate" class="form-control" />
+				<span asp-validation-for="DueDate" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="FinalCost" class="control-label"></label>
+				<input asp-for="FinalCost" class="form-control" />
+				<span asp-validation-for="FinalCost" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}

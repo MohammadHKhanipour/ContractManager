@@ -13,5 +13,11 @@
             _commandRepository = commandRepository;
             _baseAdapter = baseAdapter;
         }
+
+        public async Task<int> GetCountById(int contractId)
+        {
+            var result = await _queryRepository.GetAsync(x => x.ContractId == contractId);
+            return result.Count;
+        }
     }
 }
