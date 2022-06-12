@@ -1,9 +1,4 @@
-﻿using ContractManager.Framework.Data;
-using ContractManager.Framework.Enums;
-using ContractManager.Infrastructure.Tools;
-using Microsoft.AspNetCore.Http;
-
-namespace ContractManager.Business.Classes
+﻿namespace ContractManager.Business.Classes
 {
     public class ContractFileBusiness : DomainBusiness<ContractFile, ContractFileDto>, IContractFileBusiness
     {

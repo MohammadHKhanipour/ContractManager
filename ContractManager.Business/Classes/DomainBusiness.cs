@@ -1,8 +1,4 @@
-﻿using ContractManager.Framework.Contracts;
-using ContractManager.Framework.Data;
-using ContractManager.Framework.Enums;
-
-namespace ContractManager.Business.Classes
+﻿namespace ContractManager.Business.Classes
 {
     public class DomainBusiness<Model, Dto> : IDomainBusiness<Model, Dto> where Model : BaseModel where Dto : BaseDto
     {

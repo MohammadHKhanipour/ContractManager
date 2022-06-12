@@ -1,6 +1,4 @@
-﻿using ContractManager.Framework.Contracts;
-
-namespace ContractManager.Service.Classes
+﻿namespace ContractManager.Service.Classes
 {
     public class DomainService<Model, Dto> : IDomainService<Model, Dto> where Model : BaseModel where Dto : BaseDto
     {
@@ -65,6 +63,5 @@ namespace ContractManager.Service.Classes
 
         public async Task<bool> UpdateAsync(Dto entity)
             => await _commandRepository.UpdateAsync(_baseAdapter.GetModel(entity));
-
     }
 }

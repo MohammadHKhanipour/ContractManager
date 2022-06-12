@@ -1,7 +1,4 @@
-﻿using ContractManager.Framework.Contracts;
-using ContractManager.Infrastructure.Tools;
-
-namespace ContractManager.Infrastructure.IoC
+﻿namespace ContractManager.Infrastructure.IoC
 {
     public class DependencyManager
     {
@@ -13,7 +10,7 @@ namespace ContractManager.Infrastructure.IoC
             RegisterServices(services);
             RegisterBusinesses(services);
         }
-        
+
         #region Register Database
         private static void RegistereDatabase(IServiceCollection services, string connectionString)
             => services.AddDbContext<ContractManagerDbContext>(options => options.UseSqlServer(connectionString));

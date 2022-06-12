@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.FileProviders;
-using System.Text;
-
-namespace ContractManager.Infrastructure.Tools
+﻿namespace ContractManager.Infrastructure.Tools
 {
     public interface IUploadService
     {

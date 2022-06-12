@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ContractManager.Framework.Enums
+﻿namespace ContractManager.Framework.Enums
 {
     public enum ResponseStatus
     {
-        [EnumMember(Value = "خطا در انجام عملیات")]
+        [EnumMember(Value = "Operation Failed")]
         Fail,
 
-        [EnumMember(Value = "عملیات با موفقیت انجام شد")]
+        [EnumMember(Value = "Operation Successful")]
         Success,
 
-        [EnumMember(Value = "موردی یافت نشد")]
+        [EnumMember(Value = "Not Found")]
         NotFound,
     }
 }

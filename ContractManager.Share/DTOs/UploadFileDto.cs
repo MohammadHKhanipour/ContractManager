@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations;
-
-namespace ContractManager.Share.DTOs
+﻿namespace ContractManager.Share.DTOs
 {
     public class UploadFileDto : BaseDto
     {

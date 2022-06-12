@@ -1,6 +1,4 @@
-﻿using ContractManager.Framework.Data;
-
-namespace ContractManager.Framework.Adapter
+﻿namespace ContractManager.Framework.Adapter
 {
     public interface IBaseAdapter<Model, Dto> where Model : BaseModel where Dto : BaseDto
     {

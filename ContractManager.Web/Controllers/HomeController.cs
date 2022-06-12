@@ -1,8 +1,6 @@
 ﻿using ContractManager.Business.Interfaces;
 using ContractManager.Share.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.FileProviders;
-using System.Diagnostics;
 
 namespace ContractManager.Web.Controllers
 {
@@ -26,7 +24,7 @@ namespace ContractManager.Web.Controllers
         public async Task<IActionResult> Upload(UploadFileDto dto)
         {
             var result = await _contractFileBusiness.UploadAndCreate(dto);
-            
+
             return Ok(result);
         }
 
