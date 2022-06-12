@@ -51,7 +51,7 @@ namespace ContractManager.Web.Controllers
         public async Task<IActionResult> EditCorrespondence(CorrespondenceDto dto, int contractId)
         {
             var result = await _correspondenceBusiness.UpdateAsync(dto);
-            
+
             if (result.Status == ResponseStatus.Success)
                 return RedirectToAction("ShowCorrespondences", "Correspondence", new { contractId });
 
@@ -65,7 +65,7 @@ namespace ContractManager.Web.Controllers
             if (result.Status == ResponseStatus.Success)
                 return RedirectToAction("ShowCorrespondences", "Correspondence", new { contractId });
 
-            return RedirectToAction("ShowCorrespondences", "Correspondence", new { contractId , message = "Delete Failed" });
+            return RedirectToAction("ShowCorrespondences", "Correspondence", new { contractId, message = "Delete Failed" });
         }
     }
 }

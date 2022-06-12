@@ -4,4 +4,5 @@ global using ContractManager.Framework.Contracts;
 global using ContractManager.Framework.Data;
 global using ContractManager.Framework.Enums;
 global using ContractManager.Infrastructure.Tools;
+global using ContractManager.Service.Interfaces;
 global using ContractManager.Share.DTOs;

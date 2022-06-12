@@ -1,6 +1,4 @@
-﻿using ContractManager.Service.Interfaces;
-
-namespace ContractManager.Business.Classes
+﻿namespace ContractManager.Business.Classes
 {
     public class ContractBusiness : DomainBusiness<Contract, ContractDto>, IContractBusiness
     {
@@ -21,7 +19,7 @@ namespace ContractManager.Business.Classes
         public async Task<ListResponseBase<ShowContractDto>> GetAllContracts()
         {
             var contracts = await _domainService.GetAsync();
-            
+
             if (contracts == null || !contracts.Any())
                 return ListResponseBase<ShowContractDto>.Failure(ResponseStatus.NotFound);
 

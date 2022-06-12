@@ -51,7 +51,7 @@ namespace ContractManager.Web.Controllers
         public async Task<IActionResult> EditFundingResource(FundingResourceDto dto, int contractId)
         {
             var result = await _fundingResourceBusiness.UpdateAsync(dto);
-            
+
             if (result.Status == ResponseStatus.Success)
                 return RedirectToAction("ShowFundingResources", "FundingResource", new { contractId });
 

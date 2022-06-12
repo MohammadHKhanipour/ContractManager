@@ -3,7 +3,6 @@ using ContractManager.Framework.Enums;
 using ContractManager.Share.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
-using System.Text;
 
 namespace ContractManager.Web.Controllers
 {

@@ -1,5 +1,4 @@
 ﻿using ContractManager.Business.Interfaces;
-using ContractManager.Share.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContractManager.Web.Controllers

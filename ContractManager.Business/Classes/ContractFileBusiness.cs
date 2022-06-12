@@ -1,6 +1,4 @@
-﻿using ContractManager.Service.Interfaces;
-
-namespace ContractManager.Business.Classes
+﻿namespace ContractManager.Business.Classes
 {
     public class ContractFileBusiness : DomainBusiness<ContractFile, ContractFileDto>, IContractFileBusiness
     {
