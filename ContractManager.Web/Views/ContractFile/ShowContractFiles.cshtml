@@ -12,7 +12,7 @@
 		@ViewBag.Error
 	</div>
 }
-<a class="btn btn-primary" asp-action="AddContractFile" asp-controller="ContractFile">Add Contract File</a>
+<a class="btn btn-primary" asp-action="AddContractFile" asp-controller="ContractFile" asp-route-contractId="@ViewBag.ContractId">Add Contract File</a>
 <table class="table">
 	<thead>
 		<tr>
@@ -42,6 +42,7 @@
 						<td>
 							<div class="d-felx justify-content-between align-align-items-center">
 								<a asp-action="DeleteContractFile" asp-controller="ContractFile" asp-route-id=@item.Id asp-route-contractId=@item.ContractId><i class="bi bi-x-circle me-2 p-0"></i></a>
+								<a asp-action="DownloadFile" asp-controller="ContractFile" asp-route-fileId=@item.Id><i class="bi bi-cloud-download"></i></a>
 							</div>
 						</td>
 					</tr>

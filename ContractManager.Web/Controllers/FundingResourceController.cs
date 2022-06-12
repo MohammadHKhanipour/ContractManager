@@ -18,13 +18,14 @@ namespace ContractManager.Web.Controllers
         {
             if (!string.IsNullOrEmpty(message))
                 ViewBag.Error = message;
-
+            ViewBag.ContractId = contractId;
             return View(await _fundingResourceBusiness.GetAllByContractId(contractId));
         }
 
         [HttpGet]
-        public IActionResult AddFundingResource()
+        public IActionResult AddFundingResource(int contractId)
         {
+            ViewBag.ContractId = contractId;
             return View();
         }
 
@@ -32,14 +33,14 @@ namespace ContractManager.Web.Controllers
         public async Task<IActionResult> AddFundingResource(FundingResourceDto dto)
         {
             var result = await _fundingResourceBusiness.AddAsync(dto);
-            return Ok(result);
+            return RedirectToAction("ShowFundingResources", "FundingResource", new { dto.ContractId });
         }
 
         [HttpGet]
         public async Task<IActionResult> EditFundingResource(int id, int contractId)
         {
             var response = await _fundingResourceBusiness.GetAsync(id);
-
+            ViewBag.ContractId = contractId;
             if (response.Status == ResponseStatus.Fail)
                 return RedirectToAction("ShowFundingResources", "FundingResource", new { contractId, message = "Add/Edit Failed" });
 
@@ -50,7 +51,7 @@ namespace ContractManager.Web.Controllers
         public async Task<IActionResult> EditFundingResource(FundingResourceDto dto, int contractId)
         {
             var result = await _fundingResourceBusiness.UpdateAsync(dto);
-
+            
             if (result.Status == ResponseStatus.Success)
                 return RedirectToAction("ShowFundingResources", "FundingResource", new { contractId });
 

@@ -22,19 +22,5 @@ namespace ContractManager.Web.Controllers
 
             return View(await _contractBusiness.GetAllContracts());
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Upload(UploadFileDto dto)
-        //{
-        //    var result = await _contractFileBusiness.UploadAndCreate(dto);
-
-        //    return Ok(result);
-        //}
-
-        //[HttpGet]
-        //public async Task<IActionResult> Upload()
-        //{
-        //    return View();
-        //}
     }
 }

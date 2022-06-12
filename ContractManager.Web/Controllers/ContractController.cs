@@ -24,7 +24,7 @@ namespace ContractManager.Web.Controllers
         public async Task<IActionResult> AddContract(ContractDto dto)
         {
             var result = await _contractBusiness.AddAsync(dto);
-            return Ok(result);
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

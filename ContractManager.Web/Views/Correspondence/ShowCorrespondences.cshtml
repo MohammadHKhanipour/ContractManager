@@ -12,7 +12,7 @@
 		@ViewBag.Error
 	</div>
 }
-<a class="btn btn-primary" asp-action="AddCorrespondence" asp-controller="Correspondence">Add Correspondence</a>
+<a class="btn btn-primary" asp-action="AddCorrespondence" asp-controller="Correspondence" asp-route-contractId="@ViewBag.ContractId">Add Correspondence</a>
 <table class="table">
 	<thead>
 		<tr>

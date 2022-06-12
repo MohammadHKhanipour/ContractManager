@@ -1,0 +1,31 @@
+﻿@model ContractManager.Share.DTOs.FundingResourceDto
+
+@{
+	ViewData["Title"] = "EditFundingResource";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit FundingResource</h1>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="EditFundingResource">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group mb-2">
+				<label asp-for="Fund" class="control-label"></label>
+				<input asp-for="Fund" class="form-control" value="@Model.Fund"/>
+				<span asp-validation-for="Fund" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="Ownership" class="control-label"></label>
+				<input asp-for="Ownership" class="form-control" value="@Model.Ownership"/>
+				<span asp-validation-for="Ownership" class="text-danger"></span>
+			</div>
+			<input asp-for="ContractId" value=@ViewBag.ContractId class="form-control" type="hidden" />
+			<div class="form-group">
+				<input type="submit" value="Edit" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+

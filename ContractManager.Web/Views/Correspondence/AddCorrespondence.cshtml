@@ -1,0 +1,38 @@
+﻿@model ContractManager.Share.DTOs.CorrespondenceDto
+
+@{
+	ViewData["Title"] = "AddCorrespondence";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add Correspondence</h1>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="AddCorrespondence">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group mb-2">
+				<label asp-for="CorrespondenceContent" class="control-label"></label>
+				<input asp-for="CorrespondenceContent" class="form-control" />
+				<span asp-validation-for="CorrespondenceContent" class="text-danger"></span>
+			</div>
+			<div class="form-group mb-2">
+				<label asp-for="CorrespondenceType" class="control-label"></label>
+				<div class="input-group">
+					<select class="form-select" asp-for=CorrespondenceType>
+						<option>RequestFunds</option>
+						<option>Extension</option>
+						<option>Supplement</option>
+						<option>Warning</option>
+					</select>
+				</div>
+				<span asp-validation-for="CorrespondenceType" class="text-danger"></span>
+			</div>
+			<input asp-for="ContractId" value=@ViewBag.ContractId class="form-control" type="hidden" />
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
