@@ -1,0 +1,52 @@
+﻿@model ContractManager.Framework.Data.ListResponseBase<ContractManager.Share.DTOs.FundingResourceDto>
+@using ContractManager.Framework.Enums
+
+@{
+	ViewData["Title"] = "FundingResources";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+	<div class="alert alert-danger" role="alert">
+		@ViewBag.Error
+	</div>
+}
+<a class="btn btn-primary" asp-action="AddFundingResource" asp-controller="FundingResource">Add Funding Resource</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Fund</th>
+			<th scope="col">Ownership</th>
+			<th scope="col">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			if (Model.Status == ResponseStatus.NotFound)
+			{
+				<p class="text-danger">No Funding Resources Found</p>
+			}
+			else
+			{
+				int i = 1;
+				foreach (var item in Model.Result)
+				{
+					<tr>
+						<th scope="row">@i</th>
+						<td>@item.Fund</td>
+						<td>@item.Ownership</td>
+						<td>
+							<div class="d-felx justify-content-between align-align-items-center">
+								<a asp-action="DeleteFundingResource" asp-controller="FundingResource" asp-route-id=@item.Id asp-route-contractId=@item.ContractId><i class="bi bi-x-circle me-2 p-0"></i></a>
+								<a asp-action="EditFundingResource" asp-controller="FundingResource" asp-route-id=@item.Id asp-route-contractId=@item.ContractId><i class="bi bi-pencil p-0"></i></a>
+							</div>
+						</td>
+					</tr>
+					i++;
+				}
+			}
+		}
+	</tbody>
+</table>

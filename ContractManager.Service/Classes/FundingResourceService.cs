@@ -6,7 +6,9 @@
         private readonly ICommandRepository<FundingResource> _commandRepository;
         private readonly IBaseAdapter<FundingResource, FundingResourceDto> _baseAdapter;
 
-        public FundingResourceService(IQueryRepository<FundingResource> queryRepository, ICommandRepository<FundingResource> commandRepository, IBaseAdapter<FundingResource, FundingResourceDto> baseAdapter)
+        public FundingResourceService(IQueryRepository<FundingResource> queryRepository,
+            ICommandRepository<FundingResource> commandRepository,
+            IBaseAdapter<FundingResource, FundingResourceDto> baseAdapter)
             : base(queryRepository, commandRepository, baseAdapter)
         {
             _queryRepository = queryRepository;
@@ -18,6 +20,12 @@
         {
             var result = await _queryRepository.GetAsync(x => x.ContractId == contractId);
             return result.Count;
+        }
+
+        public async Task<List<FundingResourceDto>> GetAllByContractId(int contractId)
+        {
+            var result = await _queryRepository.GetAsync(x => x.ContractId == contractId);
+            return _baseAdapter.GetDtos(result).ToList();
         }
     }
 }

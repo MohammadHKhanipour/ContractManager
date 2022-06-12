@@ -6,7 +6,9 @@
         private readonly ICommandRepository<Correspondence> _commandRepository;
         private readonly IBaseAdapter<Correspondence, CorrespondenceDto> _baseAdapter;
 
-        public CorrespondenceService(IQueryRepository<Correspondence> queryRepository, ICommandRepository<Correspondence> commandRepository, IBaseAdapter<Correspondence, CorrespondenceDto> baseAdapter)
+        public CorrespondenceService(IQueryRepository<Correspondence> queryRepository,
+            ICommandRepository<Correspondence> commandRepository,
+            IBaseAdapter<Correspondence, CorrespondenceDto> baseAdapter)
             : base(queryRepository, commandRepository, baseAdapter)
         {
             _queryRepository = queryRepository;
@@ -18,6 +20,12 @@
         {
             var result = await _queryRepository.GetAsync(x => x.ContractId == contractId);
             return result.Count;
+        }
+
+        public async Task<List<CorrespondenceDto>> GetAllByContractId(int contractId)
+        {
+            var result = await _queryRepository.GetAsync(x => x.ContractId == contractId);
+            return _baseAdapter.GetDtos(result).ToList();
         }
     }
 }

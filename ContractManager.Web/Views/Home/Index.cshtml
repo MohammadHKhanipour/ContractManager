@@ -34,9 +34,9 @@
 	</thead>
 	<tbody>
 		@{
-			if (Model.Status == ResponseStatus.Fail)
+			if (Model.Status == ResponseStatus.NotFound)
 			{
-				<p>No Contracts Found</p>
+				<p class="text-danger">No Contracts Found</p>
 			}
 			else
 			{
@@ -53,9 +53,9 @@
 						<td>@item.StartDate</td>
 						<td>@item.DueDate</td>
 						<td>@item.FinalCost</td>
-						<td><a asp-action="Index" asp-controller="FundingResource">@item.FundingResourcesCount</a></td>
-						<td><a asp-action="Index" asp-controller="ContractFile">@item.DocumentationsCount</a></td>
-						<td><a asp-action="Index" asp-controller="Correspondence">@item.CorrespondencesCount</a></td>
+						<td><a asp-action="ShowFundingResources" asp-controller="FundingResource" asp-route-contractId=@item.Id>@item.FundingResourcesCount</a></td>
+						<td><a asp-action="ShowContractFiles" asp-controller="ContractFile" asp-route-contractId=@item.Id>@item.DocumentationsCount</a></td>
+						<td><a asp-action="ShowCorrespondences" asp-controller="Correspondence" asp-route-contractId=@item.Id>@item.CorrespondencesCount</a></td>
 						<td>@item.ContractStatus</td>
 						<td>
 							<div class="d-felx justify-content-between align-align-items-center">

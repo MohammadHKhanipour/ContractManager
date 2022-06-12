@@ -2,5 +2,6 @@
 {
     public interface IFundingResourceBusiness : IDomainBusiness<FundingResource, FundingResourceDto>
     {
+        Task<ListResponseBase<FundingResourceDto>> GetAllByContractId(int contractId);
     }
 }

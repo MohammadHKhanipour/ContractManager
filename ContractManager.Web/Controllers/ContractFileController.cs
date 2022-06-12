@@ -14,12 +14,12 @@ namespace ContractManager.Web.Controllers
             _contractFileBusiness = contractFileBusiness;
         }
 
-        public async Task<IActionResult> Index(string message = "")
+        public async Task<IActionResult> ShowContractFiles(int contractId, string message = "")
         {
             if (!string.IsNullOrEmpty(message))
                 ViewBag.Error = message;
 
-            return View(await _contractFileBusiness.GetAsync());
+            return View(await _contractFileBusiness.GetAllByContractId(contractId));
         }
 
         [HttpGet]
@@ -35,14 +35,14 @@ namespace ContractManager.Web.Controllers
             return Ok(result);
         }
 
-        public async Task<IActionResult> DeleteContractFile(int id)
+        public async Task<IActionResult> DeleteContractFile(int id, int contractId)
         {
             var result = await _contractFileBusiness.DeleteAsync(id);
 
             if (result.Status == ResponseStatus.Success)
-                return RedirectToAction("Index", "ContractFile");
+                return RedirectToAction("ShowContractFiles", "ContractFile", new {contractId});
 
-            return RedirectToAction("Index", "ContractFile", new { message = "Delete Failed" });
+            return RedirectToAction("ShowContractFiles", "ContractFile", new { contractId, message = "Delete Failed" });
         }
     }
 }
